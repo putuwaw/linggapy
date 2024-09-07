@@ -21,5 +21,10 @@ setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    python_requires=">=3.6, <4",
+    python_requires=">=3.10, <4",
+    extras_require={
+        "dev": [
+            "pytest>=8.3.2, <9",
+        ],
+    },
 )
