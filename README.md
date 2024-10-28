@@ -2,6 +2,10 @@
 
 Library for Stemming Balinese Text Language
 
+```bash
+pip install linggapy
+```
+
 ```py
 from linggapy.stemmer import Stemmer
 
