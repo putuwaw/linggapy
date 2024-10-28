@@ -1,5 +1,5 @@
 from .disambiguator import Disambiguator
-from ..utils import Cacher, Loader
+from ..utils import Cacher, Loader, Logger
 from ..corrector import Corrector
 from ..normalizer import Normalizer
 
@@ -11,6 +11,7 @@ class Stemmer:
 
     def __init__(self):
         self.cache = Cacher()
+        self.logger = Logger().get_logger()
         self.normalizer = Normalizer()
         self.corrector = Corrector()
         self.disambiguator = Disambiguator()
@@ -50,5 +51,5 @@ class Stemmer:
 
             return " ".join(result)
         except Exception as e:
-            print(f"Failed to stem text: {text}, error: {e}")
+            self.logger.error(f"Failed to stem text: {text}, error: {e}")
             return text

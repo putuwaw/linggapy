@@ -1,4 +1,4 @@
-from ..utils import Cacher
+from ..utils import Cacher, Logger
 
 import re
 import unicodedata
@@ -11,6 +11,7 @@ class Normalizer:
 
     def __init__(self):
         self.cache = Cacher()
+        self.logger = Logger().get_logger()
 
     def normalize(self, text: str) -> str:
         """
@@ -34,5 +35,5 @@ class Normalizer:
                 self.cache.set(raw_text, text)
                 return text
             except Exception as e:
-                print(f"Failed to normalize text: {text}, error: {e}")
+                self.logger.error(f"Failed to normalize text: {text}, error: {e}")
                 return text

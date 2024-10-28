@@ -1,4 +1,4 @@
-from ..utils import Cacher, Loader
+from ..utils import Cacher, Loader, Logger
 from typing import Optional
 
 import string
@@ -18,6 +18,7 @@ class Corrector:
     ):
         self.cache = Cacher()
         self.loader = Loader()
+        self.logger = Logger().get_logger()
         self.document = (
             document if document is not None else self.loader.load_articles()
         )
@@ -80,5 +81,7 @@ class Corrector:
                     self.cache.set(word, result)
                     return result
                 except Exception as e:
-                    print(f"Failed to correct_spelling word: {word}, error: {e}")
+                    self.logger.error(
+                        f"Failed to correct_spelling word: {word}, error: {e}"
+                    )
                     return word
