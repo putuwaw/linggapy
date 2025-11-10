@@ -36,7 +36,7 @@ setup(
     python_requires=">=3.10, <4",
     extras_require={
         "dev": [
-            "pytest>=8.3.2, <9",
+            "pytest>=8.3.2, <10",
         ],
         "docs": [
             "sphinx>=8.0.2, <9",
