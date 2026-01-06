@@ -39,7 +39,7 @@ setup(
             "pytest>=8.3.2, <9",
         ],
         "docs": [
-            "sphinx>=8.0.2, <9",
+            "sphinx>=8.0.2, <10",
             "furo",
         ],
     },
